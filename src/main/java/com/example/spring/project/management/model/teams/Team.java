@@ -2,6 +2,9 @@ package com.example.spring.project.management.model.teams;
 
 import com.example.spring.project.management.model.employees.Employee;
 import com.example.spring.project.management.model.projects.Project;
+import com.example.spring.project.management.model.teams.teamsValidators.atMostOneManager.AtMostOneManager;
+import com.example.spring.project.management.model.teams.teamsValidators.atMostTenDevelopers.AtMostTenDevelopers;
+import com.example.spring.project.management.model.teams.teamsValidators.maxTwoProjects.MaxTwoProjects;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,6 +18,9 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@MaxTwoProjects
+@AtMostOneManager
+@AtMostTenDevelopers
 public class Team {
 
     @Id

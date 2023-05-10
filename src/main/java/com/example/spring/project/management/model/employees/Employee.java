@@ -1,5 +1,7 @@
 package com.example.spring.project.management.model.employees;
 
+import com.example.spring.project.management.model.employees.employeesValidators.devAtMostOneTeam.DevAtMostOneTeam;
+import com.example.spring.project.management.model.employees.employeesValidators.managerAtMostTwoTeams.ManagerAtMostTwoTeams;
 import com.example.spring.project.management.model.teams.Team;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -15,6 +17,8 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@DevAtMostOneTeam
+@ManagerAtMostTwoTeams
 public class Employee {
 
     @Id

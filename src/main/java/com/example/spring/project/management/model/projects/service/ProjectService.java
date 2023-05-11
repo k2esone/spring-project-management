@@ -5,10 +5,10 @@ import com.example.spring.project.management.model.projects.dto.CreateProjectReq
 import com.example.spring.project.management.model.projects.dto.ProjectResponse;
 import com.example.spring.project.management.model.projects.dto.UpdateProjectResponse;
 import com.example.spring.project.management.model.projects.repository.ProjectRepository;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service
@@ -23,7 +23,7 @@ public class ProjectService {
         return new ProjectResponse(
                 project.getId(),
                 project.getProjectName(),
-                project.getTeam()
+                project.getTeam().getId()
         );
     }
 
@@ -54,7 +54,7 @@ public class ProjectService {
         return new UpdateProjectResponse(
                 project.getId(),
                 project.getProjectName(),
-                project.getTeam()
+                project.getTeam().getId()
         );
     }
 

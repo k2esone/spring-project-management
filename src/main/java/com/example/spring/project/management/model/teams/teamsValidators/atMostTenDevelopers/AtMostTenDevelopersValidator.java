@@ -3,8 +3,9 @@ package com.example.spring.project.management.model.teams.teamsValidators.atMost
 import com.example.spring.project.management.model.employees.Employee;
 import com.example.spring.project.management.model.employees.Subtype;
 import com.example.spring.project.management.model.teams.Team;
-import jakarta.validation.ConstraintValidator;
-import jakarta.validation.ConstraintValidatorContext;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
 
 public class AtMostTenDevelopersValidator implements ConstraintValidator<AtMostTenDevelopers, Team> {
     @Override

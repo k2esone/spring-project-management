@@ -3,12 +3,10 @@ package com.example.spring.project.management.model.employees;
 import com.example.spring.project.management.model.employees.employeesValidators.devAtMostOneTeam.DevAtMostOneTeam;
 import com.example.spring.project.management.model.employees.employeesValidators.managerAtMostTwoTeams.ManagerAtMostTwoTeams;
 import com.example.spring.project.management.model.teams.Team;
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import net.bytebuddy.build.ToStringPlugin;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -41,6 +39,8 @@ public class Employee {
     @Column(nullable = false)
     private Subtype subtype;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @ManyToMany
     private Set<Team> teams;
 }

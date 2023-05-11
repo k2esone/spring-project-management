@@ -14,6 +14,6 @@ import java.util.Set;
 public class TeamResponse {
     private Long idR;
 
-    private Set<Project> projectsR;
-    private Set<Employee> employeesR;
+    private Set<Long> projectsR;
+    private Set<String> employeesR;
 }

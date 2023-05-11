@@ -1,11 +1,9 @@
 package com.example.spring.project.management.model.projects;
 
 import com.example.spring.project.management.model.teams.Team;
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -21,6 +19,8 @@ public class Project {
     @Column(nullable = false)
     private String projectName;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @ManyToOne
     private Team team;
 

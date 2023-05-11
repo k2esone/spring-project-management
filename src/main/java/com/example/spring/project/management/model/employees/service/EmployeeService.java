@@ -5,11 +5,13 @@ import com.example.spring.project.management.model.employees.dto.CreateEmployeeR
 import com.example.spring.project.management.model.employees.dto.EmployeeResponse;
 import com.example.spring.project.management.model.employees.dto.UpdateEmployeeResponse;
 import com.example.spring.project.management.model.employees.repository.EmployeeRepository;
-import jakarta.persistence.EntityNotFoundException;
+import com.example.spring.project.management.model.teams.Team;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class EmployeeService {
@@ -27,7 +29,7 @@ public class EmployeeService {
                 employee.getPosition(),
                 employee.getDateOfEmployment(),
                 employee.getSubtype(),
-                employee.getTeams()
+                employee.getTeams().stream().map(Team::getId).collect(Collectors.toSet())
         );
     }
 
@@ -68,7 +70,7 @@ public class EmployeeService {
                 employee.getPosition(),
                 employee.getDateOfEmployment(),
                 employee.getSubtype(),
-                employee.getTeams()
+                employee.getTeams().stream().map(Team::getId).collect(Collectors.toSet())
         );
     }
 

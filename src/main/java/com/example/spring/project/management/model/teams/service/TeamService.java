@@ -6,11 +6,12 @@ import com.example.spring.project.management.model.teams.dto.CreateTeamRequest;
 import com.example.spring.project.management.model.teams.dto.TeamResponse;
 import com.example.spring.project.management.model.teams.dto.UpdateTeamResponse;
 import com.example.spring.project.management.model.teams.repository.TeamRepository;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TeamService {
@@ -24,8 +25,8 @@ public class TeamService {
     private TeamResponse mapTeamToTeamResponse(Team team) {
         return new TeamResponse(
                 team.getId(),
-                team.getProjects(),
-                team.getEmployees()
+                team.getProjects().stream().map(i -> i.getId()).collect(Collectors.toSet()),
+                team.getEmployees().stream().map(i->i.getName()).collect(Collectors.toSet())
         );
     }
 
@@ -55,8 +56,8 @@ public class TeamService {
     private UpdateTeamResponse teamToTeamResponse(Team team) {
         return new UpdateTeamResponse(
                 team.getId(),
-                team.getProjects(),
-                team.getEmployees()
+                team.getProjects().stream().map(i->i.getId()).collect(Collectors.toSet()),
+                team.getEmployees().stream().map(i->i.getName()).collect(Collectors.toSet())
         );
     }
 

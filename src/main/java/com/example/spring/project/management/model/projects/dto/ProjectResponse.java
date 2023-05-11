@@ -13,5 +13,5 @@ public class ProjectResponse {
     private Long idR;
 
     private String projectNameR;
-    private Team teamR;
+    private Long teamRId;
 }

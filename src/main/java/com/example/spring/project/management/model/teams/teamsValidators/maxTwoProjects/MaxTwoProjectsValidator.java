@@ -1,8 +1,9 @@
 package com.example.spring.project.management.model.teams.teamsValidators.maxTwoProjects;
 
 import com.example.spring.project.management.model.teams.Team;
-import jakarta.validation.ConstraintValidator;
-import jakarta.validation.ConstraintValidatorContext;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
 
 public class MaxTwoProjectsValidator implements ConstraintValidator<MaxTwoProjects, Team> {
     @Override

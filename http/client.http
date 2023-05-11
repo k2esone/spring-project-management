@@ -1,0 +1,84 @@
+###
+POST http://localhost:8080/employee
+Content-Type: application/json
+
+{
+  "nameR": "JohnTEST",
+  "surnameR": "Smith",
+  "positionR": "Java Developer",
+  "dateOfEmploymentR": "2023-02-04",
+  "subtypeR": "DEVELOPER",
+  "teamsR": []
+}
+
+
+###
+POST http://localhost:8080/project
+Content-Type: application/json
+
+{
+  "projectNameR": "New Project"
+}
+
+###
+POST http://localhost:8080/team
+Content-Type: application/json
+
+{
+  "projectsR": [],
+  "employeesR": []
+}
+
+###
+GET http://localhost:8080/project
+
+###
+GET http://localhost:8080/team
+
+###
+PATCH http://localhost:8080/employee/2
+Content-Type: application/json
+
+{
+  "surnameR": "SmithSadsad",
+  "positionR": "Java Developer4",
+  "subtypeR": "DEVELOPER",
+  "teamsR": [{"id": 1, "projects": [], "employees": []}]
+  }
+
+
+###
+GET http://localhost:8080/employee/1
+Content-Type: application/json
+
+###
+DELETE http://localhost:8080/employee/1
+
+###
+###
+GET http://localhost:8080/team/1
+
+###
+PATCH http://localhost:8080/team/1
+Content-Type: application/json
+
+{
+  "employees": [],
+  "projects": []
+}
+
+###
+
+
+###
+###
+POST http://localhost:8080/user
+Content-Type: application/json
+
+{
+  "userName": "adminA",
+  "password": "admin",
+  "email": "myemail@gmail.com"
+}
+###
+GET http://localhost:8080/user/1

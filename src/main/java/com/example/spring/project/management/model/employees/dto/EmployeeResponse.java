@@ -21,5 +21,5 @@ public class EmployeeResponse {
     private String positionR;
     private LocalDate dateOfEmploymentR;
     private Subtype subtypeR;
-    private Set<Team> teamsR;
+    private Set<Long> teamsR;
 }

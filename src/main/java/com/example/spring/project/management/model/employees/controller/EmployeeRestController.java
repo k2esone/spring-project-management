@@ -5,6 +5,7 @@ import com.example.spring.project.management.model.employees.dto.EmployeeRespons
 import com.example.spring.project.management.model.employees.dto.UpdateEmployeeResponse;
 import com.example.spring.project.management.model.employees.service.EmployeeService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,30 +20,36 @@ public class EmployeeRestController {
         this.employeeService = employeeService;
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping()
     public EmployeeResponse createEmployee(@RequestBody CreateEmployeeRequest request) {
         log.info("employee addition has been triggered: {}", request);
         return employeeService.createEmployee(request);
     }
 
+    @PreAuthorize("hasRole('USER')")
     @GetMapping()
     public List<EmployeeResponse> getEmployeesList() {
         log.info("someone asked for an employees list");
         return employeeService.getEmployeesList();
     }
 
+
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("/{employeeId}")
     public EmployeeResponse getEmployeeById(@PathVariable Long employeeId) {
         log.info("someone asked for an employee with id - {}", employeeId);
         return employeeService.getEmployeeById(employeeId);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PatchMapping("/{employeeId}")
-    public UpdateEmployeeResponse updateEmploye(@PathVariable Long employeeId, @RequestBody CreateEmployeeRequest request) {
+    public UpdateEmployeeResponse updateEmployee(@PathVariable Long employeeId, @RequestBody CreateEmployeeRequest request) {
         log.info("employee update with id - {} has been triggered, data: {}", employeeId, request);
         return employeeService.updateEmployee(employeeId, request);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{employeeId}")
     public void deleteEmployeeById(@PathVariable Long employeeId) {
         log.info("someone asked to delete an employee with id - {}", employeeId);

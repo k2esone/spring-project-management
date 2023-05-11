@@ -1,5 +1,6 @@
 package com.example.spring.project.management.model.user.models;
 
+import com.example.spring.project.management.model.user.userValidators.ValidRole;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,6 +13,7 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ValidRole
 public class User {
 
     @Id

@@ -27,7 +27,7 @@ public class EmployeeRestController {
         return employeeService.createEmployee(request);
     }
 
-    @PreAuthorize("hasRole('USER')")
+    //Some companies provide employee lists
     @GetMapping()
     public List<EmployeeResponse> getEmployeesList() {
         log.info("someone asked for an employees list");
@@ -35,7 +35,7 @@ public class EmployeeRestController {
     }
 
 
-    @PreAuthorize("hasRole('USER')")
+    //Some companies provide employee lists
     @GetMapping("/{employeeId}")
     public EmployeeResponse getEmployeeById(@PathVariable Long employeeId) {
         log.info("someone asked for an employee with id - {}", employeeId);

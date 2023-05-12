@@ -108,12 +108,12 @@ public class MyUserDetailsService implements UserDetailsService {
     }
 
     //Just for tests
-    public UserResponse updateUser(Long userId) {
-        User user = userRepository.getById(userId);
-        user.setActive(true);
-        user.setRoles("ROLE_ADMIN");
-        userRepository.save(user);
-
-        return mapUserToUserResponse(user);
-}
+//    public UserResponse updateUser(Long userId) {
+//        User user = userRepository.getById(userId);
+//        user.setActive(true);
+//        user.setRoles("ROLE_ADMIN");
+//        userRepository.save(user);
+//
+//        return mapUserToUserResponse(user);
+//}
 }

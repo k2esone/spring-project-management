@@ -30,7 +30,7 @@ public class MyUserDetailsController {
         return myUserDetailsService.createUser(request);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping()
     public List<UserResponse> getUsersList() {
         log.info("someone asked for an users list");
@@ -60,9 +60,10 @@ public class MyUserDetailsController {
     }
 
 
-//        @GetMapping("/{userId}")
-//        public UserResponse updateUser(@PathVariable Long userId) {
-//            return myUserDetailsService.updateUser();
-//        }
+    //Just for tests
+        @GetMapping("/test/{userId}")
+        public UserResponse updateUser(@PathVariable Long userId) {
+            return myUserDetailsService.updateUser(userId);
+        }
 
 }

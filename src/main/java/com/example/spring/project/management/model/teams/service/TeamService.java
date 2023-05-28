@@ -4,6 +4,7 @@ import com.example.spring.project.management.model.employees.service.EmployeeSer
 import com.example.spring.project.management.model.teams.Team;
 import com.example.spring.project.management.model.teams.dto.CreateTeamRequest;
 import com.example.spring.project.management.model.teams.dto.TeamResponse;
+import com.example.spring.project.management.model.teams.dto.UpdateTeamRequest;
 import com.example.spring.project.management.model.teams.dto.UpdateTeamResponse;
 import com.example.spring.project.management.model.teams.repository.TeamRepository;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -61,7 +62,7 @@ public class TeamService {
         );
     }
 
-    public UpdateTeamResponse updateTeam(Long teamId, CreateTeamRequest request) {
+    public UpdateTeamResponse updateTeam(Long teamId, UpdateTeamRequest request) {
         Team team = teamRepository.findById(teamId)
                 .orElseThrow(() -> new EntityNotFoundException("Team not found, id: " + teamId));
         team.setProjects(request.getProjectsR());

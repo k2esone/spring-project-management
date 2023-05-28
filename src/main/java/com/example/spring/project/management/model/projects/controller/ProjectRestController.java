@@ -2,6 +2,7 @@ package com.example.spring.project.management.model.projects.controller;
 
 import com.example.spring.project.management.model.projects.dto.CreateProjectRequest;
 import com.example.spring.project.management.model.projects.dto.ProjectResponse;
+import com.example.spring.project.management.model.projects.dto.UpdateProjectRequest;
 import com.example.spring.project.management.model.projects.dto.UpdateProjectResponse;
 import com.example.spring.project.management.model.projects.service.ProjectService;
 import lombok.extern.slf4j.Slf4j;
@@ -43,7 +44,7 @@ public class ProjectRestController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PatchMapping("/{projectId}")
-    public UpdateProjectResponse updateProject(@PathVariable Long projectId, @RequestBody CreateProjectRequest request) {
+    public UpdateProjectResponse updateProject(@PathVariable Long projectId, @RequestBody UpdateProjectRequest request) {
         log.info("project update with id - {} has been triggered, data: {}", projectId, request);
         return projectService.updateProject(projectId, request);
 

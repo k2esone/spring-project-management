@@ -3,6 +3,7 @@ package com.example.spring.project.management.model.employees.service;
 import com.example.spring.project.management.model.employees.Employee;
 import com.example.spring.project.management.model.employees.dto.CreateEmployeeRequest;
 import com.example.spring.project.management.model.employees.dto.EmployeeResponse;
+import com.example.spring.project.management.model.employees.dto.UpdateEmployeeRequest;
 import com.example.spring.project.management.model.employees.dto.UpdateEmployeeResponse;
 import com.example.spring.project.management.model.employees.repository.EmployeeRepository;
 import com.example.spring.project.management.model.teams.Team;
@@ -74,7 +75,7 @@ public class EmployeeService {
         );
     }
 
-    public UpdateEmployeeResponse updateEmployee(Long employeeId, CreateEmployeeRequest request) {
+    public UpdateEmployeeResponse updateEmployee(Long employeeId, UpdateEmployeeRequest request) {
         Employee employee = employeeRepository.findById(employeeId)
                 .orElseThrow(() -> new EntityNotFoundException("Employee not found, id: " + employeeId));
         employee.setSurname(request.getSurnameR());

@@ -2,6 +2,7 @@ package com.example.spring.project.management.model.teams.controller;
 
 import com.example.spring.project.management.model.teams.dto.CreateTeamRequest;
 import com.example.spring.project.management.model.teams.dto.TeamResponse;
+import com.example.spring.project.management.model.teams.dto.UpdateTeamRequest;
 import com.example.spring.project.management.model.teams.dto.UpdateTeamResponse;
 import com.example.spring.project.management.model.teams.service.TeamService;
 import lombok.extern.slf4j.Slf4j;
@@ -43,7 +44,7 @@ public class TeamRestController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PatchMapping("/{teamId}")
-    public UpdateTeamResponse updateTeam(@PathVariable Long teamId, @RequestBody CreateTeamRequest request) {
+    public UpdateTeamResponse updateTeam(@PathVariable Long teamId, @RequestBody UpdateTeamRequest request) {
         log.info("team update with id - {} has been triggered, data: {}", teamId, request);
         return teamService.updateTeam(teamId, request);
     }

@@ -4,6 +4,7 @@ import com.example.spring.project.management.model.projects.dto.CreateProjectReq
 import com.example.spring.project.management.model.projects.dto.ProjectResponse;
 import com.example.spring.project.management.model.projects.dto.UpdateProjectResponse;
 import com.example.spring.project.management.model.user.dto.CreateUserRequest;
+import com.example.spring.project.management.model.user.dto.UpdateUserRequest;
 import com.example.spring.project.management.model.user.dto.UpdateUserResponse;
 import com.example.spring.project.management.model.user.dto.UserResponse;
 import com.example.spring.project.management.model.user.service.MyUserDetailsService;
@@ -46,7 +47,7 @@ public class MyUserDetailsController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PatchMapping("/{userId}")
-    public UpdateUserResponse updateUser (@PathVariable Long userId, @RequestBody CreateUserRequest request) {
+    public UpdateUserResponse updateUser (@PathVariable Long userId, @RequestBody UpdateUserRequest request) {
         log.info("user update with id - {} has been triggered, data: {}", userId, request);
         return myUserDetailsService.updateUser(userId, request);
 

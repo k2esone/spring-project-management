@@ -1,8 +1,10 @@
 package com.example.spring.project.management.model.projects.service;
 
+import com.example.spring.project.management.model.employees.dto.UpdateEmployeeRequest;
 import com.example.spring.project.management.model.projects.Project;
 import com.example.spring.project.management.model.projects.dto.CreateProjectRequest;
 import com.example.spring.project.management.model.projects.dto.ProjectResponse;
+import com.example.spring.project.management.model.projects.dto.UpdateProjectRequest;
 import com.example.spring.project.management.model.projects.dto.UpdateProjectResponse;
 import com.example.spring.project.management.model.projects.repository.ProjectRepository;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -58,10 +60,9 @@ public class ProjectService {
         );
     }
 
-    public UpdateProjectResponse updateProject(Long projectId, CreateProjectRequest request) {
+    public UpdateProjectResponse updateProject(Long projectId, UpdateProjectRequest request) {
         Project project = projectRepository.findById(projectId)
                 .orElseThrow(() -> new EntityNotFoundException("Project not found, id: " + projectId));
-        project.setProjectName(request.getProjectNameR());
         project.setTeam(request.getTeamR());
 
         project = projectRepository.save(project);

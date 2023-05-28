@@ -2,6 +2,7 @@ package com.example.spring.project.management.model.employees.controller;
 
 import com.example.spring.project.management.model.employees.dto.CreateEmployeeRequest;
 import com.example.spring.project.management.model.employees.dto.EmployeeResponse;
+import com.example.spring.project.management.model.employees.dto.UpdateEmployeeRequest;
 import com.example.spring.project.management.model.employees.dto.UpdateEmployeeResponse;
 import com.example.spring.project.management.model.employees.service.EmployeeService;
 import lombok.extern.slf4j.Slf4j;
@@ -44,7 +45,7 @@ public class EmployeeRestController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PatchMapping("/{employeeId}")
-    public UpdateEmployeeResponse updateEmployee(@PathVariable Long employeeId, @RequestBody CreateEmployeeRequest request) {
+    public UpdateEmployeeResponse updateEmployee(@PathVariable Long employeeId, @RequestBody UpdateEmployeeRequest request) {
         log.info("employee update with id - {} has been triggered, data: {}", employeeId, request);
         return employeeService.updateEmployee(employeeId, request);
     }

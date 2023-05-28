@@ -1,6 +1,7 @@
 package com.example.spring.project.management.model.user.service;
 
 import com.example.spring.project.management.model.user.dto.CreateUserRequest;
+import com.example.spring.project.management.model.user.dto.UpdateUserRequest;
 import com.example.spring.project.management.model.user.dto.UpdateUserResponse;
 import com.example.spring.project.management.model.user.dto.UserResponse;
 import com.example.spring.project.management.model.user.models.MyUserDetails;
@@ -85,10 +86,9 @@ public class MyUserDetailsService implements UserDetailsService {
         );
     }
 
-    public UpdateUserResponse updateUser(Long userId, CreateUserRequest request) {
+    public UpdateUserResponse updateUser(Long userId, UpdateUserRequest request) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new EntityNotFoundException("User not found, id: " + userId));
-        user.setUserName(request.getUserNameR());
         user.setPassword(request.getPasswordR());
         user.setEmail(request.getEmailR());
         user.setActive(request.isActiveR());
